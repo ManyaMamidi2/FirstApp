@@ -24,14 +24,6 @@ Installation:
 
 `npm install`  
 
-To Run Test Suite:  
+To start the local server:
 
-`npm test`  
-
-To Start Server:
-
-`npm start`  
-
-To Visit App:
-
-`localhost:3000/ideas`  
+`npm run dev` 
