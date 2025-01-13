@@ -2,12 +2,6 @@
 
 An application used to filter data from an API endpoint by fetching annual income statements for AAPL (Apple) and allow users to filter and analyze key metrics.
 
-## Project Status
-This project has most deliverables completed.
-
-TODO: improve mobile interface
-TODO: troubleshoot rendering on github pages
-
 ## Project Screen Shot
 
 #### Example:   
@@ -27,3 +21,13 @@ Installation:
 To start the local server:
 
 `npm run dev` 
+
+## API Info
+All financial data in this app is pulled from the API endpoint from [financialmodelingprep](https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=annual)
+
+## Project Status
+This project has most deliverables completed.
+
+TODO: improve mobile interface
+TODO: troubleshoot rendering on github pages
+TODO: add more comments and documentation to files
