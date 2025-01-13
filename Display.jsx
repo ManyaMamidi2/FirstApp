@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 
-const URL = "https://financialmodelingprep.com/api/v3/income-statement/AAPL?";
+const URL = "http://financialmodelingprep.com/api/v3/income-statement/AAPL?";
 const API_key = "rYCJR5OOlkIgoYWSZLzFCIEN3st63hVX";
 var data = "nothing to see yet";
 
