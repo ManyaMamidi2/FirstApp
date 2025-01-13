@@ -4,6 +4,9 @@ import React, { useState } from "react";
 export default function StatementsTable({ incomeData, setIncomeData }) {
 	const [sortCriteria, setSortCriteria] = useState("date");
 	const [sortOrder, setSortOrder] = useState("ascending");
+	const [filterCriteria, setFilterCriteria] = useState("revenue");
+	const [minValue, setMinValue] = useState(0);
+	const [maxValue, setMaxValue] = useState(Infinity);
 
 	// Sorting function
 	const sortedData = [...incomeData].sort((a, b) => {
@@ -14,13 +17,10 @@ export default function StatementsTable({ incomeData, setIncomeData }) {
 		}
 	});
 
-	const [minRevenue, setMinRevenue] = useState(0); // Minimum revenue filter
-	const [maxRevenue, setMaxRevenue] = useState(10); // Maximum revenue filter
-
-	// Filter function
-	const filteredData = incomeData.filter((statement) => {
-		const { eps } = statement;
-		return eps >= minRevenue && eps <= maxRevenue;
+	// Filtering function
+	const filteredData = sortedData.filter((statement) => {
+		const value = statement[filterCriteria];
+		return value >= minValue && value <= maxValue;
 	});
 
 	return (
@@ -50,35 +50,51 @@ export default function StatementsTable({ incomeData, setIncomeData }) {
 					</select>
 				</div>
 				<div className='flex flex-col'>
-					<label className='font-medium mb-1'>Min Revenue:</label>
+					<label className='font-medium mb-1'>Filter by:</label>
+					<select
+						value={filterCriteria}
+						onChange={(e) => setFilterCriteria(e.target.value)}
+						className='border rounded px-2 py-1'
+					>
+						<option value='date'>Date</option>
+						<option value='revenue'>Revenue</option>
+						<option value='netIncome'>Net Income</option>
+						<option value='grossProfit'>Gross Profit</option>
+						<option value='eps'>EPS</option>
+						<option value='operatingIncome'>Operating Income</option>
+					</select>
+				</div>
+				<div className='flex flex-col'>
+					<label className='font-medium mb-1'>Min value:</label>
 					<input
 						type='number'
-						value={minRevenue}
-						onChange={(e) => setMinRevenue(Number(e.target.value) || 0)}
+						value={minValue}
+						onChange={(e) => setMinValue(Number(e.target.value) || 0)}
 						className='border rounded px-2 py-1'
 					/>
 				</div>
 				<div className='flex flex-col'>
-					<label className='font-medium mb-1'>Max Revenue:</label>
+					<label className='font-medium mb-1'>Max value:</label>
 					<input
 						type='number'
-						value={maxRevenue}
-						onChange={(e) => setMaxRevenue(Number(e.target.value) || 10)}
+						value={maxValue}
+						onChange={(e) => setMaxValue(Number(e.target.value) || Infinity)}
 						className='border rounded px-2 py-1'
 					/>
 				</div>
 				<button
 					onClick={() => {
-						setMinRevenue(0);
-						setMaxRevenue(Infinity);
+						setFilterCriteria("revenue");
+						setMinValue(0);
+						setMaxValue(Infinity);
 					}}
-					className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'
+					className='bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-200'
 				>
 					Reset Filters
 				</button>
 			</div>
-			<h3 className='text-center text-2xl text-green-700 my-4'>
-				Apple Income Statements!
+			<h3 className='text-center text-2xl text-blue-500 my-4'>
+				Apple Income Statements
 			</h3>
 			<table className='table-auto w-full border-collapse border border-gray-300'>
 				<thead>
@@ -90,7 +106,7 @@ export default function StatementsTable({ incomeData, setIncomeData }) {
 						<th className='border border-gray-300 px-4 py-2 text-left'>
 							Net Income
 						</th>
-						<th className='border border-pink-300 px-4 py-2 text-left'>
+						<th className='border border-gray-300 px-4 py-2 text-left'>
 							Gross Profit
 						</th>
 						<th className='border border-gray-300 px-4 py-2 text-left'>EPS</th>
@@ -100,7 +116,7 @@ export default function StatementsTable({ incomeData, setIncomeData }) {
 					</tr>
 				</thead>
 				<tbody>
-					<Statement incomeData={sortedData} />
+					<Statement incomeData={filteredData} />
 				</tbody>
 			</table>
 		</>

@@ -2,18 +2,26 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href=".AppleFinancials/src/assets/purplemoonicon.webp"
-		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Apple Revenue Info</title>
 		<link rel="stylesheet" href="src/index.css" />
 	</head>
 	<body
-		class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-r from-cyan-100 to-blue-300"
+		class="relative flex overflow-y:auto min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-r from-cyan-100 to-blue-300"
 	>
+		<div
+			class="m-10 lg:col-span-3 bg-white p-10 shadow-lg ring-1 ring-gray-900/5 rounded-lg"
+		>
+			<h2 class="text-2xl font-semibold text-gray-700 text-center">
+				Manya's Financial Data Filtering App
+			</h2>
+			<p class="text-gray-600 mt-2 text-center">
+				Use this app to analyze and learn about Apple financial data as released
+				by the SEC! Learn about the company's growth over time and use these
+				tools to analyze the data for yourself!
+			</p>
+		</div>
+
 		<div
 			class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm: max-h-screen-2xl sm:max-w-screen-4xl sm:rounded-lg sm:px-10"
 		>
@@ -21,49 +29,58 @@
 			<script type="module" src="/src/main.jsx"></script>
 		</div>
 	</body>
-	<div
-		class="mt-6 bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 rounded-lg sm:max-w-lg mx-auto"
-	>
-		<h2 class="text-2xl font-semibold text-gray-700 text-center">
-			Learn more!
-		</h2>
-	</div>
 
-	<!-- Main Grid Container -->
 	<div class="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
 		<!-- Box 1 -->
 		<div class="bg-white p-6 shadow-lg ring-1 ring-gray-900/5 rounded-lg">
 			<h2 class="text-xl font-semibold text-gray-700">Data Aquisition</h2>
-			<p class="text-gray-600 mt-2">Content for the first box goes here.</p>
+			<p class="text-gray-600 mt-2">
+				FMP's Income Statement API provides access to real-time income statement
+				data for a wide range of companies, including public companies, private
+				companies, and ETFs.
+			</p>
 		</div>
 
-		<!-- Box 2 -->
 		<div class="bg-white p-6 shadow-lg ring-1 ring-gray-900/5 rounded-lg">
 			<h2 class="text-xl font-semibold text-gray-700">Date</h2>
-			<p class="text-gray-600 mt-2">Content for the second box goes here.</p>
+			<p class="text-gray-600 mt-2">
+				SEC filings with coverage until this date.
+			</p>
 		</div>
 
-		<!-- Box 3 -->
 		<div class="bg-white p-6 shadow-lg ring-1 ring-gray-900/5 rounded-lg">
 			<h2 class="text-xl font-semibold text-gray-700">Revenue</h2>
-			<p class="text-gray-600 mt-2">Content for the third box goes here.</p>
+			<p class="text-gray-600 mt-2">
+				Revenue is the net sales of iPhone, Mac, iPad, Services and other
+				products of Apple as well as any deffered revenue.
+			</p>
 		</div>
 
 		<!-- Box 4 -->
 		<div class="bg-white p-6 shadow-lg ring-1 ring-gray-900/5 rounded-lg">
 			<h2 class="text-xl font-semibold text-gray-700">Net Income</h2>
-			<p class="text-gray-600 mt-2">Content for the fourth box goes here.</p>
+			<p class="text-gray-600 mt-2">
+				Net income is calculated as the gross income of a company with cost of
+				goods, taxes, and interest, etc. deducted.
+			</p>
 		</div>
 
-		<!-- Box 5 -->
 		<div class="bg-white p-6 shadow-lg ring-1 ring-gray-900/5 rounded-lg">
 			<h2 class="text-xl font-semibold text-gray-700">EPS</h2>
-			<p class="text-gray-600 mt-2">Content for the fifth box goes here.</p>
+			<p class="text-gray-600 mt-2">
+				EPS is a good indicator of a company's profitability. It is caluclated
+				as the value of earnings per outstanding share of common stock over some
+				period of time.
+			</p>
 		</div>
-		<!-- Box 6 -->
+
 		<div class="bg-white p-6 shadow-lg ring-1 ring-gray-900/5 rounded-lg">
 			<h2 class="text-xl font-semibold text-gray-700">Operating Income</h2>
-			<p class="text-gray-600 mt-2">Content for the sixth box goes here.</p>
+			<p class="text-gray-600 mt-2">
+				Operating income is calculated as a company's profit once operating
+				expenses are deducted. Operating expenses can be expenses such as wages,
+				cost of goods, rent, etc.
+			</p>
 		</div>
 	</div>
 </html>
